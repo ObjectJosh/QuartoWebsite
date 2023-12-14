@@ -1,0 +1,26 @@
+---
+about:
+  template: jolla
+  id: about-block
+  image: "img/my_image.jpg"
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/ObjectJosh
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/-joshuawong/
+---
+
+::: {#about-block}
+:::
+
+# Welcome!
+
+I'm probably coding right now\... 👨🏻‍💻
+
+```{=html}
+<div  style="margin: 30px; text-align: center;">
+<a class="btn btn-primary" href="/projects/analysis" role="button" target="_blank" style="padding: 15px 30px;">View Data Analysis Project</a>
+</div>
+```
