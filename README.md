@@ -43,5 +43,4 @@ This is our take on the recent April Fools event on Reddit called r/Place
 
 <br />
 
-<br />
-<br />
+Built with Quarto template: https://github.com/marvinschmitt/quarto-website-template
