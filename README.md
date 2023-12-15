@@ -24,9 +24,4 @@
 
 <br />
 
-### :gear: Tools and Dependencies
-- Google Maps API
-
-<br />
-
 Built with Quarto template: https://github.com/marvinschmitt/quarto-website-template
