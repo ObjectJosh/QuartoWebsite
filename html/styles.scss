@@ -26,7 +26,7 @@ $green:   #118230 !default;
 $teal:    #068194 !default;
 $cyan:    #3093CF !default;
 
-$primary:   $teal!default;
+$primary:   $black!default;
 $secondary: $gray-700 !default;
 $success:   $green !default;
 $info:      $cyan !default;
@@ -40,7 +40,7 @@ $dark:      $black !default;
 // Links
 $link-color: $primary !default;
 $link-decoration: none !default;
-$link-hover-color: $red !default;
+$link-hover-color: $blue !default;
 $link-hover-decoration: underline !default;
 
 // Footer
@@ -52,11 +52,11 @@ $code-bg: $gray-200 !default;
 $code-color: $gray-900 !default;
 
 // TOC
-$toc-color: $orange;
+$toc-color: $blue;
 $toc-font-size: 1em;
 
 // Code copy
-$btn-code-copy-color-active: $orange !default;
+$btn-code-copy-color-active: $blue !default;
 
 
 /*-- scss:rules --*/

@@ -2,8 +2,11 @@
 title: Projects
 ---
 
-## Data Analysis
+------------------------------------------------------------------------
 
-[![](project_1_banner.png){style="object-fit: contain" width="100%"}](/projects/analysis)
+
+## How does early-stage funding affect the long-term success or failure of startups?
+
+[![](project_1_banner.png){style="object-fit: contain" width="40%"}](/projects/analysis)
 
 ------------------------------------------------------------------------

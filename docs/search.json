@@ -2,8 +2,57 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome!",
+    "title": "\nHello World!  \n",
     "section": "",
-    "text": "Github\n  \n  \n    \n     LinkedIn\n  \n\n\n\n\nWelcome!\nI’m probably coding right now... 👨🏻‍💻\n\nView Data Analysis Project"
+    "text": "Github\n  \n  \n    \n     LinkedIn\n  \n\n\n\n\nHello World!  \n\nHere’s a little about me…\nI’m probably coding right now... 👨🏻‍💻\n\nView Data Analysis Project"
+  },
+  {
+    "objectID": "projects/analysis/index.html",
+    "href": "projects/analysis/index.html",
+    "title": "How does early-stage funding affect the long-term success or failure of startups?",
+    "section": "",
+    "text": "As you’ve heard in the news and social media, startups are becoming increasingly popular in public interest. According to Forbes, a startup is defined as “a businesses that wants to disrupt industries and change the world—and do it all at scale.” Oftentimes, it’s high-risk high-reward, especially the earlier you are in it. This crucial early stage shapes the outcome of the business, and to keep it alive with high-growth, many founders raise rounds to fund their company. This paper aims to analyze the impact of early-stage funding on the longer-term success (or failure) of startups. For this research question, we will define “early-stage funding” as a startup that’s raised an angel investment and/or a series A investment. For more information about startup rounds, you may find some useful information here. The “success” of a startup will be defined in two separate ways: if the startup was in the “Top 500” startups (according to the data) and if the startup was acquired. As defined, please note that both success metrics will have their own respective analyses and findings, and correlation between the success metrics will not be performed in the scope of this article.\n\n\nThe dataset used in this analysis, startup-data.csv, includes comprehensive information regarding various startups including their funding history and current status. This dataset has data about different funding rounds as well as geographical information, average number of funding participants, and the current status of each startup (e.g., acquired, closed). The dataset provides a snapshot of 923 startups betweeen 1984 and 2013.\n\n\n\nThe objective of this data analysis is to examine the relationship between early-stage funding and the long-term success of startups. A key hypothesis is that startups receiving early-stage funding have a higher likelihood of long-term success compared to those without. This analysis aims to validate / challenge this hypothesis through some data exploration and statistical testing of the dataset.\n\n\n\n\nIdentify and categorize startups based on their early-stage funding status (VC, angel investment, and Round A funding).\nAnalyze the correlation between early-stage funding and the long-term success or failure of these startups.\nPerform statistical tests to ascertain the strength and significance of these correlations.\nUse visualizations to illustrate key findings and trends in the data."
+  },
+  {
+    "objectID": "projects/analysis/index.html#introduction",
+    "href": "projects/analysis/index.html#introduction",
+    "title": "How does early-stage funding affect the long-term success or failure of startups?",
+    "section": "",
+    "text": "As you’ve heard in the news and social media, startups are becoming increasingly popular in public interest. According to Forbes, a startup is defined as “a businesses that wants to disrupt industries and change the world—and do it all at scale.” Oftentimes, it’s high-risk high-reward, especially the earlier you are in it. This crucial early stage shapes the outcome of the business, and to keep it alive with high-growth, many founders raise rounds to fund their company. This paper aims to analyze the impact of early-stage funding on the longer-term success (or failure) of startups. For this research question, we will define “early-stage funding” as a startup that’s raised an angel investment and/or a series A investment. For more information about startup rounds, you may find some useful information here. The “success” of a startup will be defined in two separate ways: if the startup was in the “Top 500” startups (according to the data) and if the startup was acquired. As defined, please note that both success metrics will have their own respective analyses and findings, and correlation between the success metrics will not be performed in the scope of this article.\n\n\nThe dataset used in this analysis, startup-data.csv, includes comprehensive information regarding various startups including their funding history and current status. This dataset has data about different funding rounds as well as geographical information, average number of funding participants, and the current status of each startup (e.g., acquired, closed). The dataset provides a snapshot of 923 startups betweeen 1984 and 2013.\n\n\n\nThe objective of this data analysis is to examine the relationship between early-stage funding and the long-term success of startups. A key hypothesis is that startups receiving early-stage funding have a higher likelihood of long-term success compared to those without. This analysis aims to validate / challenge this hypothesis through some data exploration and statistical testing of the dataset.\n\n\n\n\nIdentify and categorize startups based on their early-stage funding status (VC, angel investment, and Round A funding).\nAnalyze the correlation between early-stage funding and the long-term success or failure of these startups.\nPerform statistical tests to ascertain the strength and significance of these correlations.\nUse visualizations to illustrate key findings and trends in the data."
+  },
+  {
+    "objectID": "projects/analysis/index.html#interactive-preview-of-cleaned-data-1",
+    "href": "projects/analysis/index.html#interactive-preview-of-cleaned-data-1",
+    "title": "How does early-stage funding affect the long-term success or failure of startups?",
+    "section": "Interactive Preview of Cleaned Data",
+    "text": "Interactive Preview of Cleaned Data\n\n\nCode\ndatatable(startup_data, options = list(pageLength = 5, scrollX = TRUE))\n\n\n\n\n\n\n\n\nLooking at Date Ranges to Determine Bounds of Data Snapshot\n\n\nCode\ncheck_dates &lt;- startup_data |&gt;\n  mutate(\n    founded_at = as.Date(founded_at, format = \"%m/%d/%Y\"),\n    first_funding_at = as.Date(first_funding_at, format = \"%m/%d/%Y\"),\n    last_funding_at = as.Date(last_funding_at, format = \"%m/%d/%Y\")\n  )\n\ncheck_dates |&gt;\n  summarise(\n    min_founded_at = min(founded_at, na.rm = TRUE),\n    max_founded_at = max(founded_at, na.rm = TRUE),\n    min_first_funding_at = min(first_funding_at, na.rm = TRUE),\n    max_first_funding_at = max(first_funding_at, na.rm = TRUE),\n    min_last_funding_at = min(last_funding_at, na.rm = TRUE),\n    max_last_funding_at = max(last_funding_at, na.rm = TRUE)\n  )\n\n\n# A tibble: 1 × 6\n  min_founded_at max_founded_at min_first_funding_at max_first_funding_at\n  &lt;date&gt;         &lt;date&gt;         &lt;date&gt;               &lt;date&gt;              \n1 1984-01-01     2013-04-16     2000-01-01           2013-11-20          \n# ℹ 2 more variables: min_last_funding_at &lt;date&gt;, max_last_funding_at &lt;date&gt;"
+  },
+  {
+    "objectID": "projects/analysis/index.html#early-stage-funding-regression-with-success-metrics",
+    "href": "projects/analysis/index.html#early-stage-funding-regression-with-success-metrics",
+    "title": "How does early-stage funding affect the long-term success or failure of startups?",
+    "section": "Early Stage Funding Regression with “Success” Metrics",
+    "text": "Early Stage Funding Regression with “Success” Metrics\n\nSuccess Metric - Top 500\n\n\nCode\nstartup_data$is_top500_factor &lt;- as.numeric(startup_data$is_top500)\n\nstartup_data$early_stage_funding &lt;- ifelse(startup_data$early_stage_funding == \"Yes\", 1, 0)\nrun_logistic_regression(startup_data, \"is_top500_factor\", \"early_stage_funding\")\n\n\n\nCall:\nglm(formula = formula, family = \"binomial\", data = data, maxit = 1000)\n\nCoefficients:\n                    Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)           1.7473     0.1598  10.936   &lt;2e-16 ***\nearly_stage_funding  -0.4348     0.1879  -2.315   0.0206 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 899.39  on 922  degrees of freedom\nResidual deviance: 893.80  on 921  degrees of freedom\nAIC: 897.8\n\nNumber of Fisher Scoring iterations: 4\n\n\nIn this logistic regression analysis, we can see that the coefficient for early_stage_funding is negative, suggesting that early-stage funding may decrease the likelihood of being in the top 500 startups compared to not. The results are statistically significant, with a p-value of 0.0206. However the effect size is relatively small and one should note that many other factors play a role in affecting startup success.\n\n\nSuccess Metric - Acquired\n\n\nCode\nrun_logistic_regression(startup_data, \"status_factor\", \"early_stage_funding\")\n\n\n\nCall:\nglm(formula = formula, family = \"binomial\", data = data, maxit = 1000)\n\nCoefficients:\n                    Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)           0.4595     0.1166   3.941 8.12e-05 ***\nearly_stage_funding   0.2214     0.1446   1.531    0.126    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 1198.8  on 922  degrees of freedom\nResidual deviance: 1196.5  on 921  degrees of freedom\nAIC: 1200.5\n\nNumber of Fisher Scoring iterations: 4\n\n\nIn this logistic regression analysis, we can see that the coefficient for early_stage_funding is positive, suggesting that early-stage funding may increase the likelihood of a startup being acquired. However the results are not statistically significant, with a p-value of 0.126."
+  },
+  {
+    "objectID": "projects/index.html#how-does-early-stage-funding-affect-the-long-term-success-or-failure-of-startups",
+    "href": "projects/index.html#how-does-early-stage-funding-affect-the-long-term-success-or-failure-of-startups",
+    "title": "Projects",
+    "section": "How does early-stage funding affect the long-term success or failure of startups?",
+    "text": "How does early-stage funding affect the long-term success or failure of startups?"
+  },
+  {
+    "objectID": "projects/index.html#data-analysis-how-does-early-stage-funding-affect-the-long-term-success-or-failure-of-startups",
+    "href": "projects/index.html#data-analysis-how-does-early-stage-funding-affect-the-long-term-success-or-failure-of-startups",
+    "title": "Projects",
+    "section": "Data Analysis: How does early-stage funding affect the long-term success or failure of startups?",
+    "text": "Data Analysis: How does early-stage funding affect the long-term success or failure of startups?"
+  },
+  {
+    "objectID": "projects/index.html#data-analysis---how-does-early-stage-funding-affect-the-long-term-success-or-failure-of-startups",
+    "href": "projects/index.html#data-analysis---how-does-early-stage-funding-affect-the-long-term-success-or-failure-of-startups",
+    "title": "Projects",
+    "section": "Data Analysis - How does early-stage funding affect the long-term success or failure of startups?",
+    "text": "Data Analysis - How does early-stage funding affect the long-term success or failure of startups?"
   }
 ]

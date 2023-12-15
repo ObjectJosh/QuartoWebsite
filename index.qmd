@@ -15,12 +15,17 @@ about:
 ::: {#about-block}
 :::
 
-# Welcome!
+
+<h1><img src="img/Hello_Bot.png" style="object-fit: contain; padding-right: 8px; margin-bottom: 4px" width="40px" alt="hello world" style="vertical-align: middle;">Hello World! <img src="img/cup.png" style="object-fit: contain; margin-bottom: 20px" width="40px" alt="cup" style="vertical-align: middle;"> <img src="img/rock.png" style="object-fit: contain; margin-bottom: 20px" width="40px" alt="rock" style="vertical-align: middle;"></h1>
+
+
+Here's a little about me...
 
 I'm probably coding right now\... 👨🏻‍💻
 
+
 ```{=html}
 <div  style="margin: 30px; text-align: center;">
-<a class="btn btn-primary" href="/projects/analysis" role="button" style="padding: 15px 30px;">View Data Analysis Project</a>
+<a class="btn btn-primary" href="/projects/analysis" role="button" style="padding: 15px 30px; border-radius: 12px">View Data Analysis Project</a>
 </div>
 ```
