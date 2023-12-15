@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Welcome to My Quarto Website
+  Welcome to my Quarto Website
 </h1>
 <p align="center">
     <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ObjectJosh/QuartoWebsite?color=blueviolet&style=flat-square">
