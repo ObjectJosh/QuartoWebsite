@@ -19,4 +19,4 @@
 
 <br />
 
-Built with Quarto template: https://github.com/marvinschmitt/quarto-website-template
+> Built with Quarto template: https://github.com/marvinschmitt/quarto-website-template
