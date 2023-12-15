@@ -24,20 +24,6 @@
 
 <br />
 
-# About
-
-### 🕹️ How to Play
-Walk around and color in squares. It's that simple!
-- Paint a picture with friends!
-- Collaborate with others!
-- Just have some fun!
-<br />
-
-### ✍️ Description
-This is our take on the recent April Fools event on Reddit called r/Place
-
-<br />
-
 ### :gear: Tools and Dependencies
 - Google Maps API
 
