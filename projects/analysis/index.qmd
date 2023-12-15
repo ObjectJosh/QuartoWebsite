@@ -1,21 +1,245 @@
 ---
-title: Data Analysis
+title: How does early-stage funding affect the long-term success or failure of startups?
+subtitle: Data Analysis Project
+author: Joshua Wong
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    code-fold: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
 ---
 
-## Title 1
+## Introduction
 
-<img src="project_1_banner.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open(&apos;https://arxiv.org/abs/2210.07278&apos;, &apos;blank&apos;);"/>
+As you've heard in the news and social media, startups are becoming increasingly popular in public interest. According to [Forbes](https://www.forbes.com/advisor/business/what-is-a-startup/), a startup is defined as "a businesses that wants to disrupt industries and change the world---and do it all at scale." Oftentimes, it's high-risk high-reward, especially the earlier you are in it. This crucial early stage shapes the outcome of the business, and to keep it alive with high-growth, many founders raise rounds to fund their company. This paper aims to analyze the impact of early-stage funding on the longer-term success (or failure) of startups. For this research question, we will define "early-stage funding" as a startup that's raised an angel investment and/or a series A investment. For more information about startup rounds, you may find some useful information [here](https://www.forbes.com/sites/alejandrocremades/2018/12/26/how-funding-rounds-work-for-startups/?sh=49cbfb767386). The "success" of a startup will be defined in two separate ways: if the startup was in the "Top 500" startups (according to the data) and if the startup was acquired. As defined, please note that both success metrics will have their own respective analyses and findings, and correlation between the success metrics will not be performed in the scope of this article.
 
-<a href="https://arxiv.org/abs/2210.07278" target="_blank">arXiv Preprint</a> \| <a href="https://github.com/https://objectjosh.github.io/QuartoWebsite/" target="_blank">Code</a><br>
+### Data Description
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci amet laborum. Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat, temporibus enim commodi iusto libero magni deleniti quod quam consequuntur! Commodi minima excepturi repudiandae velit hic maxime doloremque. Quaerat provident commodi consectetur veniam similique ad earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam quasi aliquam eligendi, placeat qui corporis!
+The dataset used in this analysis, [startup-data.csv](https://www.kaggle.com/datasets/manishkc06/startup-success-prediction/data), includes comprehensive information regarding various startups including their funding history and current status. This dataset has data about different funding rounds as well as geographical information, average number of funding participants, and the current status of each startup (e.g., acquired, closed). The dataset provides a snapshot of 923 startups betweeen 1984 and 2013.
 
-------------------------------------------------------------------------
+### Objective
 
-## Title 2
+The objective of this data analysis is to examine the relationship between early-stage funding and the long-term success of startups. A key hypothesis is that startups receiving early-stage funding have a higher likelihood of long-term success compared to those without. This analysis aims to validate / challenge this hypothesis through some data exploration and statistical testing of the dataset.
 
-<img src="project_2_banner.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open(&apos;https://arxiv.org/abs/2112.08866&apos;, &apos;blank&apos;);"/>
+### Approach
 
-<a href="https://arxiv.org/abs/2112.08866" target="_blank">arXiv Preprint</a> \| <a href="https://github.com/" target="_blank">Code</a><br>
+-   Identify and categorize startups based on their early-stage funding status (VC, angel investment, and Round A funding).
+-   Analyze the correlation between early-stage funding and the long-term success or failure of these startups.
+-   Perform statistical tests to ascertain the strength and significance of these correlations.
+-   Use visualizations to illustrate key findings and trends in the data.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci amet laborum. Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat, temporibus enim commodi iusto libero magni deleniti quod quam consequuntur! Commodi minima excepturi repudiandae velit hic maxime doloremque. Quaerat provident commodi consectetur veniam similique ad earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam quasi aliquam eligendi, placeat qui corporis!
+# Setup
+
+### Packages
+
+```{r setup}
+# Load necessary packages
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(here)
+library(lubridate)
+library(DT)
+library(scales)
+```
+
+### Load Data
+
+```{r load}
+startup_data <- read_csv(here("data/startup-data.csv"))
+```
+
+### Interactive Preview of Cleaned Data
+
+The original dataset underwent several cleaning processes:
+
+-   Conversion of relevant columns to appropriate data types.
+-   Categorization of startups based on their funding status (VC, angel investment, and Round A, etc.).
+-   Filtering to focus on critical attributes like funding status, geographic location, and current status.
+
+```{r cleaning}
+
+# Remove unnecessary columns
+startup_data <- startup_data |>
+  select(-c('Unnamed: 0', 'Unnamed: 6'))
+
+# Convert data types
+startup_data <- startup_data |>
+  mutate(
+    latitude = as.numeric(latitude),
+    longitude = as.numeric(longitude),
+    zip_code = as.character(zip_code),
+    founded_at = mdy(founded_at),
+    closed_at = mdy(closed_at),
+    first_funding_at = mdy(first_funding_at),
+    last_funding_at = mdy(last_funding_at),
+    across(starts_with('age'), as.numeric),
+    funding_total_usd = as.numeric(funding_total_usd),
+    avg_participants = as.numeric(avg_participants),
+    across(contains('is_'), as.logical),
+    status = as.factor(status)
+  )
+
+# Drop NA for status column
+startup_data <- startup_data |>
+  drop_na(status)
+
+# Create a new column 'early_stage_funding' to indicate if a startup has received any early-stage funding
+startup_data <- startup_data |>
+  mutate(early_stage_funding = has_angel | has_roundA)
+```
+
+## Interactive Preview of Cleaned Data
+
+```{r data-preview}
+datatable(startup_data, options = list(pageLength = 5, scrollX = TRUE))
+```
+
+#### Looking at Date Ranges to Determine Bounds of Data Snapshot
+
+```{r date-ranges}
+check_dates <- startup_data |>
+  mutate(
+    founded_at = as.Date(founded_at, format = "%m/%d/%Y"),
+    first_funding_at = as.Date(first_funding_at, format = "%m/%d/%Y"),
+    last_funding_at = as.Date(last_funding_at, format = "%m/%d/%Y")
+  )
+
+check_dates |>
+  summarise(
+    min_founded_at = min(founded_at, na.rm = TRUE),
+    max_founded_at = max(founded_at, na.rm = TRUE),
+    min_first_funding_at = min(first_funding_at, na.rm = TRUE),
+    max_first_funding_at = max(first_funding_at, na.rm = TRUE),
+    min_last_funding_at = min(last_funding_at, na.rm = TRUE),
+    max_last_funding_at = max(last_funding_at, na.rm = TRUE)
+  )
+```
+
+#  Analysis
+
+```{r top-500-percentage}
+
+startup_data$early_stage_funding <- factor(if_else(startup_data$has_angel == 1 | startup_data$has_roundA == 1, "Yes", "No"), 
+                                           levels = c('No', 'Yes'))
+
+startup_data$is_top500_factor <- factor(startup_data$is_top500, 
+                                        levels = c(TRUE, FALSE), 
+                                        labels = c("Top 500", "Not Top 500"))
+
+count_rates <- startup_data |>
+  count(early_stage_funding, is_top500_factor) |>
+  group_by(early_stage_funding) |>
+  mutate(prop = n / sum(n)) |>
+  ungroup()
+
+ggplot(count_rates, aes(x = early_stage_funding, y = prop, fill = is_top500_factor)) +
+  geom_bar(stat = "identity") +
+  scale_y_continuous(labels = percent_format()) +
+  scale_fill_manual(values = c("Top 500" = "palegreen", "Not Top 500" = "lightcoral")) +
+  labs(
+    title = "Proportion of Top 500 Startups by Early-Stage Funding Status",
+    x = "Received Early-Stage Funding?",
+    y = "",
+    fill = "Top 500 Status"
+  ) +
+  theme_minimal() +
+  geom_text(aes(label = scales::percent(prop, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), 
+            size = 3, 
+            color = "black")
+```
+
+```{r acquired-percentage}
+
+startup_data$early_stage_funding <- factor(if_else(startup_data$has_angel == 1 | startup_data$has_roundA == 1, "Yes", "No"), 
+                                           levels = c('No', 'Yes'))
+
+startup_data$status_factor <- factor(startup_data$status, levels = c('acquired', 'closed'))
+
+count_rates <- startup_data |>
+  count(early_stage_funding, status_factor) |>
+  group_by(early_stage_funding) |>
+  mutate(prop = n / sum(n)) |>
+  ungroup()
+
+ggplot(count_rates, aes(x = early_stage_funding, y = prop, fill = status_factor)) +
+  geom_bar(stat = "identity") +
+  scale_y_continuous(labels = percent_format()) +
+  scale_fill_manual(values = c("acquired" = "palegreen", "closed" = "lightcoral")) +
+  labs(
+    title = "Proportion of Startups by Status and Early-Stage Funding",
+    x = "Received Early-Stage Funding?",
+    y = "",
+    fill = "Startup Status"
+  ) +
+  theme_minimal() +
+  geom_text(aes(label = scales::percent(prop, accuracy = 1)), 
+            position = position_stack(vjust = 0.5), 
+            size = 3, 
+            color = "black")
+```
+
+Looking at the two charts above, we can see that the startups that received early stage funding hold a majority (positive relation) with both of our success metrics.\
+\
+Regression
+
+I'm using `glm()` because it is more fitting for our data than `lm()`, where we have binary outcome variables. With `glm()` we can use the "binomial" option. You may read more about it [here](https://sscc.wisc.edu/sscc/pubs/glm-r/#glm-families).
+
+### Regression Function
+
+```{r regression-function}
+run_logistic_regression <- function(data, response, predictor) {
+  formula <- as.formula(paste(response, "~", predictor))
+  model <- glm(formula, data = data, family = "binomial", maxit = 1000)
+  return(summary(model))
+}
+```
+
+#### Example Usage
+
+```{r func-example-usage}
+startup_data$status_factor <- ifelse(startup_data$status == "acquired", 1, 0)
+
+logistic_model_angel <- run_logistic_regression(startup_data, "status_factor", "has_angel")
+
+logistic_model_series_a <- run_logistic_regression(startup_data, "status_factor", "has_roundA")
+
+print(logistic_model_angel)
+print(logistic_model_series_a)
+```
+
+### 
+
+## Early Stage Funding Regression with "Success" Metrics
+
+### Success Metric - Top 500
+
+```{r early-stage-regression}
+startup_data$is_top500_factor <- as.numeric(startup_data$is_top500)
+
+startup_data$early_stage_funding <- ifelse(startup_data$early_stage_funding == "Yes", 1, 0)
+run_logistic_regression(startup_data, "is_top500_factor", "early_stage_funding")
+```
+
+In this logistic regression analysis, we can see that the coefficient for `early_stage_funding` is negative, suggesting that early-stage funding may decrease the likelihood of being in the top 500 startups compared to not. The results are statistically significant, with a p-value of 0.0206. However the effect size is relatively small and one should note that many other factors play a role in affecting startup success.
+
+### Success Metric - Acquired
+
+```{r acquired-regression}
+run_logistic_regression(startup_data, "status_factor", "early_stage_funding")
+```
+
+In this logistic regression analysis, we can see that the coefficient for `early_stage_funding` is positive, suggesting that early-stage funding may increase the likelihood of a startup being acquired. However the results are not statistically significant, with a p-value of 0.126.
+
+# Conclusion
+
+In this analysis, we graphed the relation between the proportion of startups who raised early funding rounds with both our success metrics of being in the top 500 and being acquired. From those results, we saw that there was a positive relationship and that there may be some indication of it being significant. After performing a logistic regression on both success metrics, the results suggest that there is no overwhelmingly statistically significant effect of early-stage funding on startup success. The findings indicate that other factors likely play a more substantial role in determining long-term success or failure of startups.
