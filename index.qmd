@@ -21,6 +21,6 @@ I'm probably coding right now\... 👨🏻‍💻
 
 ```{=html}
 <div  style="margin: 30px; text-align: center;">
-<a class="btn btn-primary" href="/projects/analysis" role="button" target="_blank" style="padding: 15px 30px;">View Data Analysis Project</a>
+<a class="btn btn-primary" href="/projects/analysis" role="button" style="padding: 15px 30px;">View Data Analysis Project</a>
 </div>
 ```
