@@ -8,11 +8,6 @@
     <img src="https://img.shields.io/github/languages/code-size/ObjectJosh/QuartoWebsite?style=flat-square">
   
 </p>
-<h5 align="center">
-  <a href="#about">About</a> •
-  <a href="#gear-tools-and-dependencies">Tools and Dependencies</a> •
-  <a href="#getting-started">Getting Started</a>
-</h5>
 
 ---
 
